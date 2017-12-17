@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Assignment.UnitTests": {
+      "commandName": "Project"
+    }
+  }
+}
