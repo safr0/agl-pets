@@ -30,33 +30,22 @@ namespace Assignment.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAsync(string gender,string pet_type)
-        {
-            //HttpResponseMessage response;
             try
             {
                 _logger.LogInformation(LoggingEvent.LIST_ITEMS, "Get List of Pets ");
-                //using (var client = new HttpClient())
-                //{
-                //    client.DefaultRequestHeaders.Accept.Clear();
-                //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //    response = await client.GetAsync(new Uri("http://agl-developer-test.azurewebsites.net/people.json"));
-                //    response.EnsureSuccessStatusCode();
-
-                    var stringResult = await httpClient.GetAsync(new Uri("http://agl-developer-test.azurewebsites.net/people.json"));
-                    IEnumerable<Owner> rawData = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Owner>>(stringResult);
-
-
-                    //Return the cats based on gender
-                    List<string> cats = rawData.Where(o => o.Gender.ToLower().Equals(gender.Trim().ToLower()) && o.OwnerPets != null)
-                        .SelectMany(t=> t.OwnerPets)
-                        .Where(p=>p.Type.Trim().ToLower().Equals(pet_type.Trim().ToLower()))
-                        .Select(p=> p.Name)
-                        .OrderBy(o=>o)
-                        .ToList();
-
-
-                    return Ok(cats);
                 
+                var stringResult = await httpClient.GetAsync(new Uri("http://agl-developer-test.azurewebsites.net/people.json"));
+                IEnumerable<Owner> rawData = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Owner>>(stringResult);
+
+                //Return the cats based on gender
+                List<string> cats = rawData.Where(o => o.Gender.ToLower().Equals(gender.Trim().ToLower()) && o.OwnerPets != null)
+                    .SelectMany(t=> t.OwnerPets)
+                    .Where(p=>p.Type.Trim().ToLower().Equals(pet_type.Trim().ToLower()))
+                    .Select(p=> p.Name)
+                    .OrderBy(o=>o)
+                    .ToList();
+
+                return Ok(cats);                
             }
             catch (HttpRequestException ex)
             {
