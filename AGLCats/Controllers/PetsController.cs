@@ -30,6 +30,7 @@ namespace Assignment.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAsync(string gender,string pet_type)
+        {            
             try
             {
                 _logger.LogInformation(LoggingEvent.LIST_ITEMS, "Get List of Pets ");
