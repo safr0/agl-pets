@@ -5,7 +5,7 @@ This is an aspnetcore MVC application. Please make sure following criteria are m
 
 1. Visual Studio 2017, typescript, nodejs, are required to run this application
 
-2. angular4.2, bootstrap, webpack and front unit tests for frontend SPA
+2. angular4.x, bootstrap, webpack, bower, and front unit tests for frontend SPA
 
 3. C#, linq, httpclient, MSTest, Moq, 
 
