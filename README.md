@@ -10,3 +10,5 @@ This is an aspnetcore MVC application. Please make sure following criteria are m
 3. C#, linq, httpclient, MSTest, Moq, 
 
 3. Restore Nuget packages and install npm packages
+
+4. Default Pets page calls the json service as per requirement and will display the results.
