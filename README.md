@@ -1,4 +1,4 @@
-# AGL Pets Store
+# Pet-web-store-mvc-angular Pets Store
 
 This is an aspnetcore MVC application. Please make sure following criteria are met, before running the application
 
